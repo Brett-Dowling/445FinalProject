@@ -1,0 +1,56 @@
+{
+  "202606": {
+    "columns": [
+      "ride_id",
+      "rideable_type",
+      "started_at",
+      "ended_at",
+      "start_station_name",
+      "start_station_id",
+      "end_station_name",
+      "end_station_id",
+      "start_lat",
+      "start_lng",
+      "end_lat",
+      "end_lng",
+      "member_casual"
+    ],
+    "read_policy": "All raw fields loaded as strings; blank or whitespace-only fields counted as missing."
+  },
+  "202607": {
+    "columns": [
+      "ride_id",
+      "rideable_type",
+      "started_at",
+      "ended_at",
+      "start_station_name",
+      "start_station_id",
+      "end_station_name",
+      "end_station_id",
+      "start_lat",
+      "start_lng",
+      "end_lat",
+      "end_lng",
+      "member_casual"
+    ],
+    "read_policy": "All raw fields loaded as strings; blank or whitespace-only fields counted as missing."
+  },
+  "202608": {
+    "columns": [
+      "ride_id",
+      "rideable_type",
+      "started_at",
+      "ended_at",
+      "start_station_name",
+      "start_station_id",
+      "end_station_name",
+      "end_station_id",
+      "start_lat",
+      "start_lng",
+      "end_lat",
+      "end_lng",
+      "member_casual"
+    ],
+    "read_policy": "All raw fields loaded as strings; blank or whitespace-only fields counted as missing."
+  }
+}

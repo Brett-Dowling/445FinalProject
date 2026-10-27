@@ -1,0 +1,10 @@
+{
+  "total_records": 1955497,
+  "same_column_names_and_order": true,
+  "global_duplicate_ride_id_excess_rows": 0,
+  "cross_month_duplicate_excess_rows": 0,
+  "station_ids_with_multiple_names": 5,
+  "station_names_with_multiple_ids": 0,
+  "unique_nonblank_station_ids_with_names": 870,
+  "no_records_modified_or_removed": true
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "month": "202606",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202606-capitalbikeshare-tripdata.zip",
+    "retrieved_at_utc": "2026-10-27T13:01:32.813578+00:00",
+    "bytes": 25458172,
+    "sha256": "82deffbb845ddc6a841c23f1759ed18d4ac52091fff81f2d2b27af7435fa8c9c",
+    "csv_members": [
+      {
+        "name": "202606-capitalbikeshare-tripdata.csv",
+        "bytes": 130560217
+      }
+    ]
+  },
+  {
+    "month": "202607",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202607-capitalbikeshare-tripdata.zip",
+    "retrieved_at_utc": "2026-10-27T13:01:36.695966+00:00",
+    "bytes": 24191626,
+    "sha256": "60ac4ee82ab65ff818b60afccf6293056626ff4757460d31bce41e0d0bf8aadd",
+    "csv_members": [
+      {
+        "name": "202607-capitalbikeshare-tripdata.csv",
+        "bytes": 130156744
+      }
+    ]
+  },
+  {
+    "month": "202608",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202608-capitalbikeshare-tripdata.zip",
+    "retrieved_at_utc": "2026-10-27T13:01:31.935249+00:00",
+    "bytes": 24268203,
+    "sha256": "bd59385ba5a872f687d685269d6f6fec7cfe3e7bbf5c4de29422e73b87db4471",
+    "csv_members": [
+      {
+        "name": "202608-capitalbikeshare-tripdata.csv",
+        "bytes": 128939994
+      }
+    ]
+  }
+]
