@@ -16,12 +16,13 @@ Total: **1,955,497 trip records**. All three files have the same 13 columns in t
 
 - No missing ride IDs, duplicate ride IDs within or across months, exact duplicate rows, unparseable timestamps, or trips ending before they started were found.
 - Missing station IDs affect roughly 14% of departure endpoints and 15% of arrival endpoints. Do not assume these are lost bikes. A valid endpoint may still support one side of the flow analysis. Report missing endpoint coverage alongside station rankings.
+- Missing station IDs are concentrated in e-bike trips. 20.4% of electric_bike start IDs and 21.4% of end IDs are missing (1,351,671 trips), versus 0.0% of start IDs and 0.2% of end IDs for classic_bike (603,826 trips). Station-level flows therefore undercount e-bike activity, while classic-bike flows are essentially complete. A likely explanation, not confirmed, is that e-bikes can be locked away from a station. Consider a classic-bike-only sensitivity check and state this limitation alongside station rankings. See figures/missing_by_biketype.png and figures/missing_by_biketype.csv.
 - Five station IDs have multiple names. Review reports/station_id_name_inventory.csv before selecting display labels. IDs are preserved as text; labels have not been merged.
 - Files appear grouped by trip end month: all observed end dates fall within the named month, while 117 June-file trips, 69 July-file trips, and 163 August-file trips started in the preceding month. This is an observed pattern, not a confirmed publisher guarantee.
 - For a strict June 1 through August 31 event window, filter departures by started_at and arrivals by ended_at independently. Exclude May departures without discarding their June arrivals. Inspect September for trips departing in August and ending in September before claiming complete August departure coverage. September has not been downloaded.
 - There are 49,592 trips shorter than 60 seconds and 1,329 longer than 24 hours. Flag these for review rather than automatically deleting them. The system-data webpage describes filtering short trips, but the downloaded files contain them.
 - Start coordinates are complete. There are 1,296 records missing at least one end coordinate. No nonblank coordinate failed numeric or global latitude/longitude bounds checks. This does not establish geographic plausibility or accurate station locations.
-- Timestamps were parsed as supplied, without timezone conversion. Confirm the publisher's timezone convention before interpreting hourly profiles.
+- Timestamps were parsed as supplied, without timezone conversion. Weekday trips by hour of started_at peak at 17:00, 18:00 and 8:00 (the top three hours), which matches local commute times, so the timestamps appear to be local time rather than UTC and no conversion is applied. This is inferred from the demand pattern, not confirmed by the publisher. See figures/trips_by_hour.png.
 
 ## Calendar
 
@@ -37,9 +38,10 @@ Install Python and pandas. The inspection was run with pandas 3.0.1. Run these f
 pip install -r requirements.txt
 python src/download_data.py
 python src/inspect_data.py
+python src/quick_look.py
 ```
 
-The downloader retrieves missing archives. The inspection reads ZIPs directly without extraction and regenerates the reports. Allow several minutes and enough memory for one monthly file. The notebook in notebooks offers a walkthrough; Jupyter is optional and can be installed separately with pip install jupyterlab.
+The downloader retrieves missing archives. The inspection reads ZIPs directly without extraction and regenerates the reports. quick_look.py also reads the ZIPs directly (ignoring macOS __MACOSX files inside them) and writes the hourly-trip and missing-ID-by-bike-type charts and CSVs to figures/. Allow several minutes and enough memory for one monthly file. The notebook in notebooks offers a walkthrough; Jupyter is optional and can be installed separately with pip install jupyterlab.
 
 Blank means empty or whitespace-only. Duplicate excess rows means repeated nonblank ride IDs beyond the first. Exact duplicates compare all original fields. Missing percentages use the corresponding monthly file's entire row count. Coordinates are checked against latitude [-90,90] and longitude [-180,180]. Sample trips are the first 10 records per file, not a representative sample.
 
